@@ -798,6 +798,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segmentPrefab: {fileID: 5658957969005355974, guid: ce84bbe5a5fb5a2caab54599733e1c0c, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: eaddac96c35354e88b1b49cc826c272b, type: 3}
+  - {fileID: 21300000, guid: 56a5a6d8122712a2cab155348e6d2376, type: 3}
+  - {fileID: 21300000, guid: 9111458b84cc5c997a822a27d0536d38, type: 3}
 --- !u!61 &1486244287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -885,8 +889,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: eaddac96c35354e88b1b49cc826c272b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -903,13 +907,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486244285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1742028453
 GameObject:
   m_ObjectHideFlags: 0
