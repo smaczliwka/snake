@@ -802,6 +802,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eaddac96c35354e88b1b49cc826c272b, type: 3}
   - {fileID: 21300000, guid: 56a5a6d8122712a2cab155348e6d2376, type: 3}
   - {fileID: 21300000, guid: 9111458b84cc5c997a822a27d0536d38, type: 3}
+  initialSize: 4
   tail: {fileID: 21300000, guid: 3cdb2110bbc5950fbba557c997b3e93b, type: 3}
   body: {fileID: 21300000, guid: 613159b673e57a356914e43311cef116, type: 3}
   corner1: {fileID: 21300000, guid: c4ac8c61367549bbca0b5afa5f7ed73a, type: 3}
