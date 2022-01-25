@@ -1,6 +1,7 @@
 //using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour {
 
@@ -56,6 +57,9 @@ public class Snake : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.D) && _prev != Vector2.left) {
             _direction = Vector2.right;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
