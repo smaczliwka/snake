@@ -15,7 +15,8 @@ public class Snake : MonoBehaviour {
     public Sprite[] sprites;
     private int _spriteIndex = 0;
 
-    private int initialSize = 10; // should be greater than 1
+    public uint initialSize = 4; // should be greater than 1
+    private uint _size = 0;
 
     public Sprite tail, body, corner1, corner2;
 
@@ -64,8 +65,10 @@ public class Snake : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (_size < initialSize) {
+            Grow();
+        }
         Vector2 direction = new Vector2(_direction.x, _direction.y);
-
         for (int i = _segments.Count - 1; i > 1; i--) {
             _segments[i].position = _segments[i - 1].position;
             _segments[i].rotation = _segments[i - 1].rotation;
@@ -78,17 +81,21 @@ public class Snake : MonoBehaviour {
             }
         }
 
-        // first segment adter head
-        _segments[1].rotation = RotationFromDirection(direction); // same direction as head
-        _segments[1].position = this.transform.position;        
-        if (_prev.x * direction.y - _prev.y * direction.x < 0) { // turn right
-            _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = corner1;
-        }
-        else if (_prev.x * direction.y - _prev.y * direction.x > 0) { // turn left
-            _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = corner2;
-        }
-        else { // go stright forward
-            _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = body;
+        if (_size >= 1) {
+            // first segment after head exists
+            _segments[1].rotation = RotationFromDirection(direction); // same direction as head
+            _segments[1].position = this.transform.position;
+            if (_size > 1) { // if first segment after head is not tail
+                if (_prev.x * direction.y - _prev.y * direction.x < 0) { // turn right
+                    _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = corner1;
+                }
+                else if (_prev.x * direction.y - _prev.y * direction.x > 0) { // turn left
+                    _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = corner2;
+                }
+                else { // go stright forward
+                    _segments[1].gameObject.GetComponent<SpriteRenderer>().sprite = body;
+                }
+            }
         }
 
         this.transform.position = new Vector3(
@@ -105,21 +112,20 @@ public class Snake : MonoBehaviour {
         segment.position = _segments[_segments.Count - 1].position;
         segment.rotation = _segments[_segments.Count - 1].rotation;
         _segments.Add(segment);
+        _size++;
     }
 
     private void ResetState() {
         this.transform.position = Vector3.zero;
         this.transform.rotation = Quaternion.Euler(0, 0, 0);
         _direction = Vector2.up;
-
+        _prev = Vector2.up;
         for (int i = 1; i < _segments.Count; i++) {
             Destroy(_segments[i].gameObject);
         }
         _segments.Clear();
         _segments.Add(this.transform);
-        for (int i = 0; i < initialSize - 1; i++) {
-            Grow();
-        }
+        _size = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
