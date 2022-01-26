@@ -778,6 +778,7 @@ GameObject:
   - component: {fileID: 1486244288}
   - component: {fileID: 1486244287}
   - component: {fileID: 1486244286}
+  - component: {fileID: 1486244291}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Player
@@ -798,10 +799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segmentPrefab: {fileID: 5658957969005355974, guid: ce84bbe5a5fb5a2caab54599733e1c0c, type: 3}
-  sprites:
-  - {fileID: 21300000, guid: eaddac96c35354e88b1b49cc826c272b, type: 3}
-  - {fileID: 21300000, guid: 56a5a6d8122712a2cab155348e6d2376, type: 3}
-  - {fileID: 21300000, guid: 9111458b84cc5c997a822a27d0536d38, type: 3}
   initialSize: 4
   tail: {fileID: 21300000, guid: 3cdb2110bbc5950fbba557c997b3e93b, type: 3}
   body: {fileID: 21300000, guid: 613159b673e57a356914e43311cef116, type: 3}
@@ -919,6 +916,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1486244291
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486244285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea0c4497da7fcba888e23ec216c4b311, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1742028453
 GameObject:
   m_ObjectHideFlags: 0
