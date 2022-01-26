@@ -1,4 +1,3 @@
-//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,10 +10,6 @@ public class Snake : MonoBehaviour {
     private List<Transform> _segments = new List<Transform>();
     public Transform segmentPrefab;
 
-    private SpriteRenderer _spriteRenderer;
-    public Sprite[] sprites;
-    private int _spriteIndex = 0;
-
     public uint initialSize = 4; // should be greater than 1
     private uint _size = 0;
 
@@ -23,19 +18,6 @@ public class Snake : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         ResetState();
-        InvokeRepeating(nameof(AnimateSprite), 0.15f, 0.15f);
-    }
-
-    private void Awake() {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void AnimateSprite() {
-        _spriteIndex++;
-        if (_spriteIndex >= sprites.Length) {
-            _spriteIndex = 0;
-        }
-        _spriteRenderer.sprite = sprites[_spriteIndex];
     }
 
     private Quaternion RotationFromDirection(Vector2 direction) {
